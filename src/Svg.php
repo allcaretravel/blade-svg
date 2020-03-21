@@ -55,8 +55,8 @@ class Svg implements Htmlable
     public function renderInline()
     {
         return str_replace(
-            '<svg',
-            sprintf('<svg%s', $this->renderAttributes()),
+            ['<svg', '<path'],
+            [sprintf('<svg%s', $this->renderAttributes()), '<path fill="var(--sidebar-icon)"'],
             $this->factory->getSvg($this->imageName)
         );
     }
